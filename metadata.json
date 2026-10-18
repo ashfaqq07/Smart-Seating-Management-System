@@ -1,0 +1,6 @@
+{
+  "name": "SmartSeat - Examination Seating Management System",
+  "description": "Intelligent college examination seating management dashboard with C-powered greedy allocation algorithms, graphical desk visualisations, conflict avoidance, and comprehensive reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
