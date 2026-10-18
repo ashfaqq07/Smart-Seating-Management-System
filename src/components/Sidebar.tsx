@@ -40,11 +40,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="w-64 bg-[#0B1528] text-slate-300 flex flex-col h-screen shrink-0 sticky top-0 border-r border-slate-800/80 select-none z-30">
+    <aside className="w-64 bg-[#0B1528] text-slate-300 flex flex-col h-screen shrink-0 sticky top-0 border-r border-slate-800/90 shadow-[2px_0_12px_rgba(0,0,0,0.16)] select-none z-30">
       {/* Brand Header */}
       <div className="p-6 border-b border-slate-800/70">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 shrink-0">
+          <div className="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/25 ring-1 ring-blue-400/30 shrink-0">
             <GraduationCap className="w-6 h-6" />
           </div>
           <div>
@@ -75,8 +75,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => onNavigate(item.id)}
               className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 cursor-pointer text-left ${
                 isActive
-                  ? 'bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/25'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                  ? 'bg-blue-600 text-white font-semibold shadow-[0_2px_8px_rgba(37,99,235,0.35)] ring-1 ring-blue-400/30'
+                  : 'text-slate-300 hover:text-white hover:bg-slate-800/70 hover:translate-x-0.5'
               }`}
             >
               <div className="flex items-center gap-3">

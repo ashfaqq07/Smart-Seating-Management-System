@@ -23,11 +23,11 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variants = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 active:bg-blue-800 shadow-sm',
-    secondary: 'bg-slate-800 text-white hover:bg-slate-900 active:bg-slate-950 shadow-sm',
-    outline: 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-900 shadow-xs',
-    danger: 'bg-rose-600 text-white hover:bg-rose-700 active:bg-rose-800 shadow-sm',
-    ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+    primary: 'bg-blue-600 text-white hover:bg-blue-500 active:bg-blue-700 shadow-[0_2px_6px_rgba(37,99,235,0.3),0_1px_2px_rgba(15,23,42,0.08)] hover:shadow-[0_4px_12px_rgba(37,99,235,0.35)] active:translate-y-px',
+    secondary: 'bg-slate-800 text-white hover:bg-slate-700 active:bg-slate-900 shadow-[0_2px_6px_rgba(15,23,42,0.15)] hover:shadow-md active:translate-y-px',
+    outline: 'border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:text-slate-900 hover:border-slate-400 shadow-[0_1px_3px_rgba(15,23,42,0.06)] active:bg-slate-100 active:translate-y-px',
+    danger: 'bg-rose-600 text-white hover:bg-rose-500 active:bg-rose-700 shadow-[0_2px_6px_rgba(225,29,72,0.25)] hover:shadow-[0_4px_10px_rgba(225,29,72,0.3)] active:translate-y-px',
+    ghost: 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:bg-slate-200/60'
   };
 
   return (
@@ -41,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-// Card
+// Card with refined realistic depth and subtle border contrast
 export const Card: React.FC<{ children: React.ReactNode; className?: string; id?: string }> = ({
   children,
   className = '',
@@ -50,7 +50,7 @@ export const Card: React.FC<{ children: React.ReactNode; className?: string; id?
   return (
     <div
       id={id}
-      className={`bg-white rounded-xl border border-slate-200/90 shadow-xs transition-shadow hover:shadow-sm ${className}`}
+      className={`bg-white rounded-xl border border-slate-200/85 shadow-[0_2px_8px_-2px_rgba(15,23,42,0.08),0_1px_4px_-1px_rgba(15,23,42,0.04)] hover:shadow-[0_8px_20px_-4px_rgba(15,23,42,0.11),0_3px_6px_-2px_rgba(15,23,42,0.05)] transition-all duration-200 ${className}`}
     >
       {children}
     </div>
@@ -82,7 +82,7 @@ export const Input: React.FC<InputProps> = ({
       )}
       <input
         id={inputId}
-        className={`w-full px-3.5 py-2 text-sm bg-white border rounded-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-colors ${
+        className={`w-full px-3.5 py-2 text-sm bg-white border rounded-lg text-slate-900 placeholder:text-slate-400 shadow-[0_1px_3px_rgba(15,23,42,0.06)] focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.12),0_1px_3px_rgba(15,23,42,0.06)] transition-all ${
           error ? 'border-rose-400 focus:border-rose-600 focus:ring-rose-500/20' : 'border-slate-300 hover:border-slate-400'
         } ${className}`}
         {...props}
@@ -118,7 +118,7 @@ export const Select: React.FC<SelectProps> = ({
       )}
       <select
         id={selectId}
-        className={`w-full px-3.5 py-2 text-sm bg-white border rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-colors cursor-pointer ${
+        className={`w-full px-3.5 py-2 text-sm bg-white border rounded-lg text-slate-900 shadow-[0_1px_3px_rgba(15,23,42,0.06)] focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:shadow-[0_0_0_3px_rgba(37,99,235,0.12),0_1px_3px_rgba(15,23,42,0.06)] transition-all cursor-pointer ${
           error ? 'border-rose-400 focus:border-rose-600' : 'border-slate-300 hover:border-slate-400'
         } ${className}`}
         {...props}

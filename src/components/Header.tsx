@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200/90 px-6 py-3.5 flex items-center justify-between gap-6">
+    <header className="sticky top-0 z-20 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_1px_3px_rgba(15,23,42,0.04)] px-6 py-3.5 flex items-center justify-between gap-6">
       {/* Global Search */}
       <div className="relative flex-1 max-w-md">
         <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search students, examinations, or halls (Ctrl + K)..."
-          className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all"
+          className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50/80 border border-slate-200/90 rounded-lg text-slate-800 placeholder:text-slate-400 shadow-[inset_0_1px_2px_rgba(15,23,42,0.03)] focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 focus:bg-white transition-all"
         />
         {searchQuery && (
           <button
@@ -120,7 +120,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {showNotifications && (
-            <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50 animate-in fade-in zoom-in-95 duration-100">
+            <div className="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-[0_12px_30px_-6px_rgba(15,23,42,0.12),0_4px_10px_-2px_rgba(15,23,42,0.06)] border border-slate-200/90 py-2 z-50 animate-in fade-in zoom-in-95 duration-100">
               <div className="px-4 py-2 border-b border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-700">Notifications</span>
                 <span className="text-[11px] font-semibold text-blue-600 cursor-pointer hover:underline">Mark all read</span>
@@ -144,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="relative" ref={profileRef}>
           <button
             onClick={() => setShowProfileMenu(!showProfileMenu)}
-            className="flex items-center gap-2.5 p-1.5 pl-2 rounded-xl hover:bg-slate-100 transition-colors cursor-pointer border border-transparent hover:border-slate-200"
+            className="flex items-center gap-2.5 p-1.5 pl-2 rounded-xl hover:bg-slate-100/80 transition-all cursor-pointer border border-transparent hover:border-slate-200/80 hover:shadow-xs active:bg-slate-200/60"
           >
             <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-xs shadow-xs shrink-0">
               {currentUser?.name ? currentUser.name.charAt(0).toUpperCase() : 'A'}
@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
 
           {showProfileMenu && (
-            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50">
+            <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-[0_12px_30px_-6px_rgba(15,23,42,0.12),0_4px_10px_-2px_rgba(15,23,42,0.06)] border border-slate-200/90 py-2 z-50">
               <div className="px-4 py-2.5 border-b border-slate-100">
                 <p className="text-xs font-bold text-slate-900">{currentUser?.name || 'Administrator'}</p>
                 <p className="text-[11px] text-slate-500 truncate">{currentUser?.email || 'admin@university.edu'}</p>

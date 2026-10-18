@@ -26,6 +26,8 @@ import {
 import { SystemStats, Examination, Hall, SeatingArrangement, Student } from '../types';
 import { Card, Button } from '../components/ui';
 import { SeatGrid } from '../components/SeatGrid';
+import classroomBannerImg from '../assets/images/classroom_banner.jpg';
+import { normalizeDepartment } from '../constants/departments';
 
 interface OverviewProps {
   stats: SystemStats;
@@ -131,16 +133,13 @@ export const Overview: React.FC<OverviewProps> = ({
   const deptDistribution = useMemo(() => {
     if (!students || students.length === 0) {
       return [
-        { name: 'Computer Science (CSE)', count: 0, pct: 0, color: 'bg-blue-600' }
+        { name: 'Computer Science and Engineering and Specialisation (CSE and Specialisation)', count: 0, pct: 0, color: 'bg-blue-600' }
       ];
     }
     const counts: Record<string, number> = {};
     const total = students.length;
     students.forEach(s => {
-      let dept = s.department?.trim() || 'General';
-      if (dept.toUpperCase() === 'CSE' || dept.toLowerCase().includes('computer')) {
-        dept = 'Computer Science (CSE)';
-      }
+      const dept = normalizeDepartment(s.department);
       counts[dept] = (counts[dept] || 0) + 1;
     });
 
@@ -235,17 +234,32 @@ export const Overview: React.FC<OverviewProps> = ({
   return (
     <div className="space-y-8 animate-in fade-in duration-200">
       {/* Top Banner / Hero matching SmartSeat Examination Seating Dashboard */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#0B1528] via-[#0E1C38] to-[#112347] text-white p-7 sm:p-8 shadow-md border border-slate-800">
+      <div className="relative overflow-hidden rounded-2xl bg-[#091122] text-white p-7 sm:p-8 shadow-[0_10px_30px_-5px_rgba(11,21,40,0.4),0_4px_12px_-2px_rgba(11,21,40,0.25)] border border-slate-700/70">
+        {/* Japanese Classroom Background Image Layer (clearly visible translucent backdrop) */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+          style={{ 
+            backgroundImage: `url(${classroomBannerImg})`,
+            opacity: 0.72
+          }}
+          aria-hidden="true"
+        />
+        {/* Translucent Navy Gradient Overlay for smooth palette integration & high legibility */}
+        <div 
+          className="absolute inset-0 z-0 bg-gradient-to-r from-[#070E1C]/85 via-[#0B172E]/65 to-[#0F2248]/50 pointer-events-none" 
+          aria-hidden="true"
+        />
+
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
           <div className="space-y-2.5 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold border border-blue-400/30">
-              <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/60 text-blue-200 text-xs font-semibold border border-blue-400/40 backdrop-blur-xs shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-blue-300" />
               <span>SmartSeat Operations Center • Academic Session 2024-2025</span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
               Intelligent Examination Seating & Venue Management
             </h1>
-            <p className="text-sm text-slate-300 font-normal leading-relaxed">
+            <p className="text-sm text-slate-100 font-normal leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.7)]">
               Automated conflict-free desk allocation using DSA graph coloring algorithms, live hall previews, and comprehensive administrative reporting.
             </p>
           </div>
