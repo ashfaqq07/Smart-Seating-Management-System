@@ -1,7 +1,7 @@
 # SmartSeat - Examination Seating Management System
 
 SmartSeat is an examination seating management system designed for college and university examination administration. It combines a modern web dashboard with a deterministic seating allocation engine implemented in C (compiled via GCC) and supported by a Python fallback.
-
+Live Demo: https://smartseatingarrangement.netlify.app
 ---
 
 ## Key Features
